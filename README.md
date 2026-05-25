@@ -1,66 +1,124 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 📚 Sistem Informasi Perpustakaan
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Sistem Informasi Perpustakaan adalah aplikasi berbasis web yang dibangun menggunakan framework **Laravel**. Aplikasi ini dirancang untuk mengelola data perpustakaan secara efisien, meliputi manajemen data buku, penulis, penerbit, klasifikasi level, serta pencatatan aktivitas membaca/peminjaman oleh pengguna.
 
-## About Laravel
+## ✨ Fitur Utama
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Berdasarkan struktur arsitektur sistem, aplikasi ini memiliki beberapa fitur utama:
+- **Manajemen Buku (CRUD):** Tambah, edit, hapus, dan lihat daftar buku.
+- **Manajemen Entitas Perpustakaan:** Pengelolaan data *Author* (Penulis), *Publisher* (Penerbit), dan *Level* (Kategori/Tingkatan).
+- **Pencatatan Aktivitas (Reads):** Sistem pencatatan riwayat membaca atau peminjaman buku.
+- **Manajemen Pengguna & Hak Akses:** Otentikasi pengguna dengan pemisahan peran antara **Admin** dan **User** biasa.
+- **Admin Dashboard:** Panel khusus admin untuk memantau dan mengelola keseluruhan data perpustakaan.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 💻 Teknologi yang Digunakan
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Proyek ini dikembangkan menggunakan *stack* modern:
+- **Framework:** [Laravel](https://laravel.com/) (PHP)
+- **Frontend Asset Bundler:** [Vite](https://vitejs.dev/)
+- **Templating Engine:** Blade
+- **Database:** MySQL / MariaDB (via Eloquent ORM)
+- **JavaScript & CSS:** Diatur menggunakan `resources/js/app.js` dan dikompilasi oleh Vite.
 
-## Learning Laravel
+## 📂 Struktur Direktori Utama
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Berikut adalah gambaran arsitektur MVC (Model-View-Controller) pada proyek ini:
+- `app/Models/` : Berisi model representasi database (`Book.php`, `Author.php`, `Publisher.php`, `Read.php`, `User.php`, `Admin.php`, `Level.php`).
+- `app/Http/Controllers/` : Berisi logika bisnis dan pengendali aplikasi (`BookController.php`, `AuthorController.php`, `PublisherController.php`, dll).
+- `database/migrations/` : Skema struktur tabel database untuk instalasi yang mudah.
+- `resources/views/` : Antarmuka pengguna (UI) yang dibangun menggunakan Blade template (seperti `books/index.blade.php`, `admin/dashboard.blade.php`, dan `layouts/app.blade.php`).
+- `routes/web.php` : Pusat pengaturan *routing* endpoint aplikasi web.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## 🚀 Persyaratan Sistem (Prerequisites)
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Sebelum menjalankan proyek ini, pastikan sistem Anda telah terinstal:
+- PHP >= 8.1
+- [Composer](https://getcomposer.org/)
+- [Node.js & NPM](https://nodejs.org/)
+- Database MySQL / MariaDB
 
-## Laravel Sponsors
+## 🛠️ Panduan Instalasi (Local Development)
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+Ikuti langkah-langkah berikut untuk menjalankan aplikasi ini di komputer lokal Anda:
 
-### Premium Partners
+1. **Clone Repository**
+   ```bash
+   git clone <url-repository-anda>
+   cd perpustakaan
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+```
 
-## Contributing
+2. **Install Dependensi PHP (Composer)**
+```bash
+composer install
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+```
 
-## Code of Conduct
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+3. **Install Dependensi Frontend (NPM)**
+```bash
+npm install
 
-## Security Vulnerabilities
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
-## License
+4. **Konfigurasi Environment**
+Salin file konfigurasi environment bawaan lalu sesuaikan kredensial database Anda.
+```bash
+cp .env.example .env
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```
+
+
+Buka file `.env` dan atur bagian database:
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=nama_database_perpustakaan
+DB_USERNAME=root
+DB_PASSWORD=
+
+```
+
+
+5. **Generate Application Key**
+```bash
+php artisan key:generate
+
+```
+
+
+6. **Jalankan Migrasi & Seeder Database**
+Perintah ini akan membuat tabel-tabel di database beserta data *dummy* awal (jika ada seeder).
+```bash
+php artisan migrate --seed
+
+```
+
+
+7. **Build Asset Frontend**
+```bash
+npm run build
+# atau gunakan 'npm run dev' jika sedang dalam mode pengembangan (development)
+
+```
+
+
+8. **Jalankan Local Server**
+```bash
+php artisan serve
+
+```
+
+
+
+Aplikasi sekarang dapat diakses melalui browser pada alamat: `http://localhost:8000`
+
+---
+
+*Dibuat untuk keperluan manajemen Perpustakaan.*
+
+```
+
+```
